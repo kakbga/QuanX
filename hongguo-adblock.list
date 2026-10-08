@@ -1,0 +1,12 @@
+# 红果短剧 去广告 QX 分流规则 v2（基于 2026-09-19 实抓 HAR，app v7.3.2 / app_id 8662）
+# 作者：biu1biu  更新：2026-09-19
+# 用途：QX -> 资源 -> 分流(Filter) 远程资源，粘贴本文件 raw 链接
+# 说明：红果不走穿山甲(pangolin)域名（旧 v1 全打空）。真实广告栈=
+#       gecko 资源包 nextad_runtime + wanzi/toutiao 曝光上报 + QUIC 广告视频。
+#       本文件负责“纯广告统计域”的连接级拦截（无需 MITM）。
+#       广告运行时资源包(nextad_runtime)按路径拦截，见配套重写文件 hongguo-adblock.conf。
+#
+# 广告曝光 / 归因上报（红果实际使用，安全，不影响播放）
+host-suffix, media-show.wanzi.com, reject
+host-suffix, ad.toutiao.com, reject
+# 备注：正片流(douyincdn / vas-lf-x.snssdk.com)、gecko 主域、支付(tp-pay)均不拦。
